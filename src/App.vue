@@ -1,30 +1,41 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <NavBar :logo="logo_src" :alt="app_name" />
   <router-view/>
-</template>
+  <Footer/>
+ </template>
+
+<script>
+import NavBar from "./components/Navbar.vue"
+import Footer from "./components/Footer.vue"
+
+export default{
+  name: "App",
+  components: {
+    NavBar,
+    Footer
+  },
+  data(){
+    return{
+      logo_src: "/img/logo.png",
+      app_name: "Barbaros Burguer"
+    }
+  }
+
+}
+</script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.main-container{
+  margin: 50px;
+  min-height: 60vh;
+}
+
+h1{
   text-align: center;
-  color: #2c3e50;
+  font-size: 42px;
+  margin-bottom: 30px;
+  color: #222;
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
